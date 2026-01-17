@@ -59,4 +59,15 @@ offset_bottom = 11.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "lose: x"
 
+[node name="version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 68.0
+offset_right = 144.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "version xx"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

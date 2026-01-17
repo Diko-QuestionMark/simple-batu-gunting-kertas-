@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cwan28xx8n1em"]
+[gd_scene load_steps=51 format=3 uid="uid://cwan28xx8n1em"]
 
 [ext_resource type="Script" uid="uid://jw0qagp7uwcs" path="res://simple.gd" id="1_68hca"]
 [ext_resource type="Texture2D" uid="uid://xrce2wpbk6na" path="res://hutanLite.jpg" id="1_qlnjk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cdcl40pr7a6xp" path="res://resultText.tscn" id="6_u4emj"]
 [ext_resource type="PackedScene" uid="uid://oeq3ln733oo6" path="res://choice.tscn" id="7_uti7t"]
 [ext_resource type="Texture2D" uid="uid://bjwpjg7enq6u6" path="res://Knight_player/Hurt_KG_1.png" id="8_ogps2"]
+[ext_resource type="AudioStream" uid="uid://dv3bjqcgjnhaw" path="res://Minifantasy_Dungeon_Music/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="12_ogps2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y37ej"]
 atlas = ExtResource("3_y37ej")
@@ -400,6 +401,11 @@ text = ""
 [node name="DelayGameOver" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_ogps2")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="pressed" from="UI/HBoxContainer/Gunting" to="." method="_on_gunting_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/Batu" to="." method="_on_batu_pressed"]
