@@ -17,8 +17,8 @@ config/icon="uid://wiyxdf58eq8o"
 
 [autoload]
 
-Global="*res://global.gd"
-SaveLoad="*res://saveLoad.gd"
+Global="*res://scripts/global.gd"
+SaveLoad="*res://scripts/saveLoad.gd"
 
 [display]
 

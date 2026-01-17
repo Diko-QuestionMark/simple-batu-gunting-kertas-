@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://kdb1ewn5jld4"]
+
+[ext_resource type="Script" uid="uid://bfmghn75qb4g0" path="res://scripts/start.gd" id="1_jaeev"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jaeev")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = 81.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Tittle" type="Label" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -58.0
+offset_right = 104.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "BATU, GUNTING, KERTAS"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 30.0
+offset_right = 28.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 12
+text = "START"
+
+[node name="win" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -12.0
+offset_right = -27.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0, 1, 0.15625, 1)
+text = "win: x"
+
+[node name="lose" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -12.0
+offset_right = 73.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "lose: x"
+
+[node name="version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 68.0
+offset_right = 144.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "version xx"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
