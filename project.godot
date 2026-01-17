@@ -13,12 +13,16 @@ config_version=5
 config/name="Simple"
 run/main_scene="uid://kdb1ewn5jld4"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://wiyxdf58eq8o"
 
 [autoload]
 
 Global="*res://global.gd"
 SaveLoad="*res://saveLoad.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [rendering]
 
