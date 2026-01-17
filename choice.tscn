@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://oeq3ln733oo6"]
+
+[node name="Choice" type="Label"]
+z_index = 5
+offset_left = -63.0
+offset_top = -18.0
+offset_right = -41.0
+offset_bottom = 5.0
+text = "👍"

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://403dqet5lkak"]
+
+[node name="HealthBar" type="ProgressBar"]
+offset_left = -24.0
+offset_top = -3.0
+offset_right = 24.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 3
+max_value = 4.0
+step = 1.0
+value = 4.0
+show_percentage = false

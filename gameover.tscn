@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj3lr8nwdkytn"]
+
+[ext_resource type="Script" uid="uid://6l27eh8grrla" path="res://game_over.gd" id="1_4nh4k"]
+
+[node name="GameoverWon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4nh4k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = 81.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Tittle" type="Label" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -54.0
+offset_right = 104.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 21
+text = "GAMEOVER"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -10.0
+offset_right = 104.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 1, 0.0625, 1)
+theme_override_font_sizes/font_size = 13
+text = "Good job, you won!👍"
+horizontal_alignment = 1
+
+[node name="TryAgain" type="Button" parent="."]
+layout_mode = 0
+offset_left = -46.0
+offset_top = 18.0
+offset_right = 46.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 12
+text = "TRY AGAIN"
+
+[node name="BackToMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 47.0
+offset_right = 49.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 12
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="TryAgain" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b0t1u3ko1u8yg"]
+
+[node name="Counter" type="Label"]
+offset_left = -73.0
+offset_top = -12.0
+offset_right = -27.0
+offset_bottom = 11.0
+text = "win: x"
