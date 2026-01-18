@@ -1,4 +1,4 @@
-Game tentang batu gunting kertas
+Game tentang batu gunting kertas/n
 Player dan musuh diberi 4 nyawa
 Jika player menang, maka darah musuh berkurang 1. Begitu juga sebaliknya
 Jika antara player atau musuh nyawanya bernilai 0. Maka game berakhir
