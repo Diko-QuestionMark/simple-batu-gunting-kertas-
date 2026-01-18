@@ -18,4 +18,9 @@ func _ready() -> void:
 	versionLabel.text = "version " + str(version)
 
 func _on_start_pressed() -> void:
+	Global.game_mode = "ORIGINAL"
 	get_tree().change_scene_to_file("res://scenes/simple.tscn")
+
+func _on_powe_up_pressed() -> void:
+	Global.game_mode = "POWERUP"
+	get_tree().change_scene_to_file("res://scenes/powerup.tscn")

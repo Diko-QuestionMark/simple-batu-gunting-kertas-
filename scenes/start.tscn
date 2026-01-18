@@ -34,28 +34,27 @@ horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
-offset_left = -28.0
-offset_top = 30.0
-offset_right = 28.0
-offset_bottom = 61.0
+offset_left = -36.0
+offset_right = 37.0
+offset_bottom = 25.0
 theme_override_font_sizes/font_size = 12
-text = "START"
+text = "ORIGINAL"
 
 [node name="win" type="Label" parent="."]
 layout_mode = 0
-offset_left = -73.0
-offset_top = -12.0
-offset_right = -27.0
-offset_bottom = 11.0
+offset_left = -139.0
+offset_top = 35.0
+offset_right = -93.0
+offset_bottom = 58.0
 theme_override_colors/font_color = Color(0, 1, 0.15625, 1)
 text = "win: x"
 
 [node name="lose" type="Label" parent="."]
 layout_mode = 0
-offset_left = 27.0
-offset_top = -12.0
-offset_right = 73.0
-offset_bottom = 11.0
+offset_left = -140.0
+offset_top = 57.0
+offset_right = -91.0
+offset_bottom = 80.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "lose: x"
 
@@ -70,4 +69,14 @@ theme_override_font_sizes/font_size = 9
 text = "version xx"
 horizontal_alignment = 1
 
+[node name="PoweUp" type="Button" parent="."]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 30.0
+offset_right = 37.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 12
+text = "POWER UP"
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PoweUp" to="." method="_on_powe_up_pressed"]
