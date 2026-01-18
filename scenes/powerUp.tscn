@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://da0d27d73nwq7"]
+[gd_scene load_steps=8 format=3 uid="uid://da0d27d73nwq7"]
 
 [ext_resource type="PackedScene" uid="uid://cwan28xx8n1em" path="res://scenes/simple.tscn" id="1_g5cyg"]
+[ext_resource type="Script" uid="uid://cm4v65rvyuc8v" path="res://scripts/powerup.gd" id="2_ih772"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g5cyg"]
 load_path = "res://.godot/imported/Icons_RPG.png-139f69cd092329f3988fcaf65640462e.ctex"
@@ -21,6 +22,7 @@ atlas = SubResource("CompressedTexture2D_3a0ef")
 region = Rect2(128, 112, 16, 16)
 
 [node name="Simple" instance=ExtResource("1_g5cyg")]
+script = ExtResource("2_ih772")
 
 [node name="power" type="HBoxContainer" parent="UI" index="1"]
 layout_mode = 0
@@ -47,24 +49,27 @@ theme_override_font_sizes/font_size = 12
 text = "Predict
 "
 
-[node name="DoubleDamage" type="TextureRect" parent="." index="4"]
+[node name="DoubleDamage" type="TextureRect" parent="UI" index="8"]
 visible = false
+layout_mode = 0
 offset_left = -8.0
 offset_top = 18.0
 offset_right = 8.0
 offset_bottom = 34.0
 texture = SubResource("AtlasTexture_107r1")
 
-[node name="Shield" type="TextureRect" parent="." index="5"]
+[node name="Shield" type="TextureRect" parent="UI" index="9"]
 visible = false
+layout_mode = 0
 offset_left = -87.0
 offset_top = -35.0
 offset_right = -71.0
 offset_bottom = -19.0
 texture = SubResource("AtlasTexture_njmha")
 
-[node name="Predict" type="TextureRect" parent="." index="6"]
+[node name="Predict" type="TextureRect" parent="UI" index="10"]
 visible = false
+layout_mode = 0
 offset_left = -66.0
 offset_top = -14.0
 offset_right = -50.0
@@ -74,3 +79,6 @@ texture = SubResource("AtlasTexture_c16ma")
 [connection signal="pressed" from="UI/power/DoubleDamage" to="." method="_on_double_damage_pressed"]
 [connection signal="pressed" from="UI/power/Shield" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="UI/power/Predict" to="." method="_on_predict_pressed"]
+
+[editable path="UI/PlayerHealth"]
+[editable path="UI/EnemyHealth"]

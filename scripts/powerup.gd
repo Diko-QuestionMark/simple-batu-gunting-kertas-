@@ -8,6 +8,8 @@ var playerHealth = 4
 var enemyHealth = 4
 var multi_damage = 1
 var damage = 1
+var shield = false
+var predict = false
 
 @onready var resultText = $UI/ResultText
 @onready var playerChoiceLabel = $UI/PlayerChoice
@@ -19,6 +21,15 @@ var damage = 1
 @onready var barEnemyHealth = $UI/EnemyHealth
 @onready var labelPlayerHealthNumber = $UI/PlayerHealth/Label
 @onready var labelEnemyHealthNumber = $UI/EnemyHealth/Label
+
+
+@onready var tombolDoubleDamage = $UI/power/DoubleDamage
+@onready var tombolShield = $UI/power/Shield
+@onready var tombolPredict = $UI/power/Predict
+
+@onready var iconDoubleDamage = $UI/DoubleDamage
+@onready var iconShield = $UI/Shield
+@onready var iconPredict = $UI/Predict
 
 @onready var playerSprite = $World/Player
 @onready var enemySprite = $World/Enemy
@@ -40,7 +51,8 @@ func _on_kertas_pressed() -> void:
 	play_game()
 
 func play_game() -> void:
-	random = randi() % 3
+	if not predict:
+			random = randi() % 3
 	if random == 2:
 		enemyChoice = "BATU"
 		enemyChoiceLabel.text = "✊"
@@ -50,7 +62,7 @@ func play_game() -> void:
 	else:
 		enemyChoice = "KERTAS"
 		enemyChoiceLabel.text = "🖐️"
-	
+	predict = false
 	print()
 	print(playerChoice + "+++Player", playerHealth)
 	print(enemyChoice + "---Musuh", enemyHealth)
@@ -70,8 +82,12 @@ func play_game() -> void:
 		
 	if result == "MENANG":
 		print("[Player Menang✅]")
+		shield = false
 		enemyHealth -= damage * multi_damage
 		multi_damage = 1
+		iconDoubleDamage.visible = false
+		iconShield.visible = false
+		iconPredict.visible = false
 		barEnemyHealth.value = enemyHealth
 		labelEnemyHealthNumber.text = str(enemyHealth)
 		
@@ -85,14 +101,24 @@ func play_game() -> void:
 			
 	elif result == "SERI":
 		print("[SERI 🧐]")
+		shield = false
 		multi_damage = 1
+		iconDoubleDamage.visible = false
+		iconShield.visible = false
+		iconPredict.visible = false
 		resultText.text = "SERI"
 		resultText.add_theme_color_override("font_color", Color(0.846, 0.918, 0.0, 1.0))
 		
 	else:
 		print("[Player Kalah❌]")
+		if shield:
+			multi_damage = 0
+			shield = false
 		playerHealth -= damage * multi_damage
 		multi_damage = 1
+		iconDoubleDamage.visible = false
+		iconShield.visible = false
+		iconPredict.visible = false
 		barPlayerHealth.value = playerHealth
 		labelPlayerHealthNumber.text = str(playerHealth)
 		resultText.text = "KALAH"
@@ -102,6 +128,31 @@ func play_game() -> void:
 			Global.game_win = false
 			Global.lose_counter += 1
 			game_over()
+
+func _on_double_damage_pressed() -> void:
+	multi_damage = 2
+	tombolDoubleDamage.visible = false
+	iconDoubleDamage.visible = true
+
+func _on_shield_pressed() -> void:
+	tombolShield.visible = false
+	iconShield.visible = true
+	shield = true
+
+func _on_predict_pressed() -> void:
+	tombolPredict.visible = false
+	iconPredict.visible = true
+	predict = true
+	random = randi() % 3
+	if random == 2:
+		enemyChoice = "BATU"
+		enemyChoiceLabel.text = "✊"
+	elif random == 1:
+		enemyChoice = "GUNTING"
+		enemyChoiceLabel.text = "✌️"
+	else:
+		enemyChoice = "KERTAS"
+		enemyChoiceLabel.text = "🖐️"
 
 func game_over() -> void:
 	tombolAction.visible = false

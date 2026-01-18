@@ -6,7 +6,7 @@ extends Control
 @onready var loseLabel = $lose
 @onready var versionLabel = $version
 
-var version = 1.0
+var version = 2.0
 
 func _ready() -> void:
 	SaveLoad._load()
@@ -21,6 +21,6 @@ func _on_start_pressed() -> void:
 	Global.game_mode = "ORIGINAL"
 	get_tree().change_scene_to_file("res://scenes/simple.tscn")
 
-func _on_powe_up_pressed() -> void:
+func _on_power_up_pressed() -> void:
 	Global.game_mode = "POWERUP"
 	get_tree().change_scene_to_file("res://scenes/powerup.tscn")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj3lr8nwdkytn"]
+[gd_scene load_steps=4 format=3 uid="uid://dj3lr8nwdkytn"]
 
 [ext_resource type="Script" uid="uid://6l27eh8grrla" path="res://scripts/game_over.gd" id="1_ncp31"]
+[ext_resource type="AudioStream" uid="uid://gg8xv5dqwslx" path="res://assets/song/Retro Success Melody 04 - electric piano 2.wav" id="2_2mkfd"]
+[ext_resource type="AudioStream" uid="uid://6omtudtuk21o" path="res://assets/song/Retro Negative Melody 02 - space voice pad.wav" id="3_h8i2o"]
 
 [node name="GameoverWon" type="Control"]
 layout_mode = 3
@@ -61,6 +63,14 @@ offset_right = 49.0
 offset_bottom = 72.0
 theme_override_font_sizes/font_size = 12
 text = "BACK TO MENU"
+
+[node name="winSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2mkfd")
+volume_db = 5.0
+
+[node name="loseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h8i2o")
+volume_db = 5.0
 
 [connection signal="pressed" from="TryAgain" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]

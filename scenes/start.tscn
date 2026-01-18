@@ -69,7 +69,7 @@ theme_override_font_sizes/font_size = 9
 text = "version xx"
 horizontal_alignment = 1
 
-[node name="PoweUp" type="Button" parent="."]
+[node name="PowerUp" type="Button" parent="."]
 layout_mode = 0
 offset_left = -36.0
 offset_top = 30.0
@@ -79,4 +79,4 @@ theme_override_font_sizes/font_size = 12
 text = "POWER UP"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="PoweUp" to="." method="_on_powe_up_pressed"]
+[connection signal="pressed" from="PowerUp" to="." method="_on_power_up_pressed"]
