@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://kdb1ewn5jld4"]
+[gd_scene load_steps=4 format=3 uid="uid://kdb1ewn5jld4"]
 
 [ext_resource type="Script" uid="uid://bfmghn75qb4g0" path="res://scripts/start.gd" id="1_jaeev"]
+[ext_resource type="Texture2D" uid="uid://43j1p4k7emgt" path="res://assets/1-bit_Pixel_Icons/Icons_Software.png" id="2_u80x2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bodal"]
+atlas = ExtResource("2_u80x2")
+region = Rect2(64, 32, 16, 16)
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -78,5 +83,14 @@ offset_bottom = 55.0
 theme_override_font_sizes/font_size = 12
 text = "POWER UP"
 
+[node name="exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 124.0
+offset_top = -77.0
+offset_right = 140.0
+offset_bottom = -61.0
+texture_normal = SubResource("AtlasTexture_bodal")
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="PowerUp" to="." method="_on_power_up_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

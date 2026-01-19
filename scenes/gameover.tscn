@@ -66,11 +66,11 @@ text = "BACK TO MENU"
 
 [node name="winSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_2mkfd")
-volume_db = 5.0
+volume_db = 10.0
 
 [node name="loseSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_h8i2o")
-volume_db = 5.0
+volume_db = 10.0
 
 [connection signal="pressed" from="TryAgain" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]

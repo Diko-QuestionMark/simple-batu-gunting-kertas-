@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://cwan28xx8n1em"]
 
-[ext_resource type="Script" uid="uid://jw0qagp7uwcs" path="res://scripts/simple.gd" id="1_qg21j"]
+[ext_resource type="Script" uid="uid://cm4v65rvyuc8v" path="res://scripts/gameplay.gd" id="1_qg21j"]
 [ext_resource type="Texture2D" uid="uid://xrce2wpbk6na" path="res://assets/gambar/hutanLite.jpg" id="2_pwn4s"]
 [ext_resource type="Texture2D" uid="uid://bfg7yaxlyhfrl" path="res://assets/Mushroom/Mushroom with VFX/Mushroom-Die.png" id="3_lmimm"]
 [ext_resource type="Texture2D" uid="uid://chackxkb0umi4" path="res://assets/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="4_x7vvx"]
