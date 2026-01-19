@@ -6,7 +6,7 @@ extends Control
 @onready var loseLabel = $lose
 @onready var versionLabel = $version
 
-var version = 2.0
+var version = 1.1
 
 func _ready() -> void:
 	SaveLoad._load()
