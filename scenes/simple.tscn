@@ -415,11 +415,15 @@ stream = ExtResource("12_cva83")
 volume_db = 10.0
 autoplay = true
 
+[node name="Dispose" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="pressed" from="UI/choice/Gunting" to="." method="_on_gunting_pressed"]
 [connection signal="pressed" from="UI/choice/Batu" to="." method="_on_batu_pressed"]
 [connection signal="pressed" from="UI/choice/Kertas" to="." method="_on_kertas_pressed"]
 [connection signal="pressed" from="UI/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="timeout" from="DelayGameOver" to="." method="_on_delay_game_over_timeout"]
+[connection signal="timeout" from="Dispose" to="." method="_on_dispose_timeout"]
 
 [editable path="UI/PlayerHealth"]
 [editable path="UI/EnemyHealth"]

@@ -367,6 +367,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rl3o"]
 radius = 90.03471
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m6be"]
+size = Vector2(125, 640.0005)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcfio"]
 atlas = ExtResource("7_7m6be")
 region = Rect2(0, 0, 64, 64)
@@ -438,9 +441,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m6be"]
-size = Vector2(125, 640.0005)
-
 [node name="worldhub" type="Node2D"]
 
 [node name="SkyCloud" type="Sprite2D" parent="."]
@@ -456,7 +456,7 @@ layer_0/tile_data = PackedInt32Array(131072, 196608, 1, 196607, 196608, 1, 19660
 
 [node name="player" type="CharacterBody2D" parent="."]
 z_index = 5
-position = Vector2(522, 413)
+position = Vector2(522, 412)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("2_kijl7")
 
@@ -505,15 +505,24 @@ offset_top = 377.0
 offset_right = 974.0
 offset_bottom = 426.0
 theme_override_font_sizes/font_size = 14
-text = "Depart
+text = "To Menu
 →"
 horizontal_alignment = 1
+
+[node name="Depart" type="Area2D" parent="goo"]
+position = Vector2(216, 15)
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goo/Depart"]
+position = Vector2(-640, -119.99963)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_7m6be")
 
 [node name="Market" type="AnimatedSprite2D" parent="."]
 position = Vector2(610, 395)
 sprite_frames = SubResource("SpriteFrames_bdgp1")
 autoplay = "default"
-frame_progress = 0.44721892
+frame_progress = 0.07480629
 
 [node name="area" type="Area2D" parent="Market"]
 position = Vector2(127.5, 11)
@@ -523,17 +532,8 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(-604.99994, 77.49999)
 shape = SubResource("CircleShape2D_6rl3o")
 
-[node name="Depart" type="Area2D" parent="."]
-position = Vector2(1136, 392)
-scale = Vector2(0.2, 0.2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Depart"]
-position = Vector2(-640, -119.99963)
-scale = Vector2(0.99999964, 0.99999964)
-shape = SubResource("RectangleShape2D_7m6be")
-
 [connection signal="body_entered" from="Homelow/area" to="player" method="_on_area_body_entered"]
 [connection signal="body_exited" from="Homelow/area" to="player" method="_on_area_body_exited"]
+[connection signal="body_entered" from="goo/Depart" to="player" method="_on_depart_body_entered"]
 [connection signal="body_entered" from="Market/area" to="player" method="_on_area_body_entered"]
 [connection signal="body_exited" from="Market/area" to="player" method="_on_area_body_exited"]
-[connection signal="body_entered" from="Depart" to="player" method="_on_depart_body_entered"]

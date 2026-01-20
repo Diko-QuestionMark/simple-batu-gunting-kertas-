@@ -30,20 +30,12 @@ zoom = Vector2(4, 4)
 [node name="Tittle" type="Label" parent="."]
 layout_mode = 0
 offset_left = -104.0
-offset_top = -58.0
+offset_top = -49.0
 offset_right = 104.0
-offset_bottom = -35.0
+offset_bottom = -26.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "BATU, GUNTING, KERTAS"
 horizontal_alignment = 1
-
-[node name="Start" type="Button" parent="."]
-layout_mode = 0
-offset_left = -36.0
-offset_right = 37.0
-offset_bottom = 25.0
-theme_override_font_sizes/font_size = 12
-text = "ORIGINAL"
 
 [node name="win" type="Label" parent="."]
 layout_mode = 0
@@ -65,32 +57,63 @@ text = "lose: x"
 
 [node name="version" type="Label" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 68.0
-offset_right = 144.0
-offset_bottom = 81.0
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 141.0
+offset_bottom = 78.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 9
 text = "version xx"
-horizontal_alignment = 1
+horizontal_alignment = 2
 
-[node name="PowerUp" type="Button" parent="."]
+[node name="money" type="Label" parent="."]
 layout_mode = 0
-offset_left = -36.0
-offset_top = 30.0
-offset_right = 37.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 12
-text = "POWER UP"
+offset_left = 60.0
+offset_top = -78.0
+offset_right = 139.0
+offset_bottom = -58.0
+theme_override_colors/font_color = Color(0.921875, 1, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "money: 0"
+horizontal_alignment = 2
 
 [node name="exit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 124.0
+offset_left = -141.0
 offset_top = -77.0
-offset_right = 140.0
+offset_right = -125.0
 offset_bottom = -61.0
 texture_normal = SubResource("AtlasTexture_bodal")
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="PowerUp" to="." method="_on_power_up_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_right = 49.0
+offset_bottom = 83.0
+scale = Vector2(0.6, 0.6)
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "ORIGINAL"
+
+[node name="PowerUp" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "POWER UP"
+
+[node name="Shop" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "SHOP"
+
+[node name="World" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "World"
+
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/PowerUp" to="." method="_on_power_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="VBoxContainer/World" to="." method="_on_world_pressed"]

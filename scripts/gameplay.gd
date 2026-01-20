@@ -34,6 +34,9 @@ var power_up = false
 @onready var playerSprite = $World/Player
 @onready var enemySprite = $World/Enemy
 
+@onready var disposeTimer = $Dispose
+
+
 func _ready() -> void:
 	randomize()
 	if Global.game_mode == "POWERUP":
@@ -84,6 +87,7 @@ func play_game() -> void:
 		
 	if result == "MENANG":
 		print("[Player Menang✅]")
+		pose()
 		shield = false
 		enemyHealth -= damage * multi_damage
 		multi_damage = 1
@@ -94,23 +98,29 @@ func play_game() -> void:
 		
 		resultText.text = "MENANG"
 		resultText.add_theme_color_override("font_color", Color(0.0, 0.918, 0.014, 1.0))
+		start_dispose_timer()
+		
 		if enemyHealth == 0:
 			enemySprite.play("death")
 			Global.game_win = true
+			Global.money += 10
 			Global.win_counter += 1
 			game_over()
 			
 	elif result == "SERI":
 		print("[SERI 🧐]")
+		pose()
 		shield = false
 		multi_damage = 1
 		if power_up:
 			reset_power()
 		resultText.text = "SERI"
 		resultText.add_theme_color_override("font_color", Color(0.846, 0.918, 0.0, 1.0))
+		start_dispose_timer()
 		
 	else:
 		print("[Player Kalah❌]")
+		pose()
 		if shield:
 			multi_damage = 0
 			shield = false
@@ -122,9 +132,11 @@ func play_game() -> void:
 		labelPlayerHealthNumber.text = str(playerHealth)
 		resultText.text = "KALAH"
 		resultText.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0, 1.0))
+		start_dispose_timer()
 		if playerHealth == 0:
 			playerSprite.play("death")
 			Global.game_win = false
+			Global.money += 5
 			Global.lose_counter += 1
 			game_over()
 
@@ -158,6 +170,22 @@ func reset_power() -> void:
 	iconShield.visible = false
 	iconPredict.visible = false
 
+func start_dispose_timer() -> void:
+	disposeTimer.start()
+
+func _on_dispose_timeout() -> void:
+	dispose()
+
+func dispose() -> void:
+	resultText.visible = false
+	enemyChoiceLabel.visible = false
+	playerChoiceLabel.visible = false
+
+func pose() -> void:
+	resultText.visible = true
+	enemyChoiceLabel.visible = true
+	playerChoiceLabel.visible = true
+
 func game_over() -> void:
 	tombolAction.visible = false
 	delayGameOver.start()
@@ -166,6 +194,7 @@ func game_over() -> void:
 func saving() -> void:
 	SaveLoad.contents_to_save.winCount = Global.win_counter
 	SaveLoad.contents_to_save.loseCount = Global.lose_counter
+	SaveLoad.contents_to_save.money = Global.money
 	SaveLoad._save()
 
 func _on_delay_game_over_timeout() -> void:
@@ -174,6 +203,3 @@ func _on_delay_game_over_timeout() -> void:
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/start.tscn")
-
-func _process(_delta: float) -> void:
-	pass
