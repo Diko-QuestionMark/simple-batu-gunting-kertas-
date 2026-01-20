@@ -5,6 +5,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
 @onready var wujudKarakter = $AnimatedSprite2D
+@onready var labelE = $e
 
 
 func _physics_process(delta: float) -> void:
@@ -35,6 +36,18 @@ func _physics_process(delta: float) -> void:
 		wujudKarakter.play("idle")
 	else:
 		wujudKarakter.play("walk")
-
-
 	move_and_slide()
+
+
+func _on_area_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		labelE.visible = true
+
+func _on_area_body_exited(body: Node2D) -> void:
+	if body.name == "player":
+		labelE.visible = false
+
+
+func _on_depart_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		get_tree().change_scene_to_file("res://scenes/start.tscn")
